@@ -1,4 +1,6 @@
-import { DEFAULTS, addSite, removeSite, normalizeDomain, timeLeft, formatTime } from "../logic.js";
+import { DEFAULTS, addSite, removeSite, normalizeDomain, timeLeft, formatTime, resolveTheme } from "../logic.js";
+
+const darkQuery = matchMedia("(prefers-color-scheme: dark)");
 
 const I18N = {
   en: {
@@ -12,7 +14,7 @@ const I18N = {
     empty: "No sites yet. Add the ones that steal your focus.", removeTitle: "Remove",
     stSessions: "sessions today", stMinutes: "minutes focused", stHits: "distractions blocked",
     durations: "Durations (minutes)", focus: "Focus", shortBreak: "Short break", longBreak: "Long break", cyclesLong: "Sessions until long break",
-    source: "Source code on GitHub ↗"
+    source: "Source code on GitHub ↗", toDark: "Dark mode", toLight: "Light mode"
   },
   he: {
     tagline: "פורחים בזמן שמתמקדים", tabTimer: "טיימר", tabSites: "אתרים", tabStats: "נתונים",
@@ -25,7 +27,7 @@ const I18N = {
     empty: "עוד אין אתרים. הוסיפי את אלה שגונבים לך את הריכוז.", removeTitle: "הסרה",
     stSessions: "סשנים היום", stMinutes: "דקות מיקוד", stHits: "הסחות נחסמו",
     durations: "משכי זמן (דקות)", focus: "מיקוד", shortBreak: "הפסקה קצרה", longBreak: "הפסקה ארוכה", cyclesLong: "סשנים עד הפסקה ארוכה",
-    source: "קוד המקור בגיטהאב ↗"
+    source: "קוד המקור בגיטהאב ↗", toDark: "מצב כהה", toLight: "מצב בהיר"
   }
 };
 
@@ -64,6 +66,13 @@ function paintPetals(progress) {
 }
 
 // ---------- render ----------
+function applyTheme() {
+  const theme = resolveTheme(state.theme, darkQuery.matches);
+  document.documentElement.dataset.theme = theme;
+  $("theme").textContent = theme === "dark" ? "☀️" : "🌙";
+  $("theme").title = theme === "dark" ? t("toLight") : t("toDark");
+}
+
 function applyLang() {
   document.documentElement.lang = state.lang;
   document.documentElement.dir = state.lang === "he" ? "rtl" : "ltr";
@@ -152,6 +161,7 @@ function renderStats() {
 }
 
 function render() {
+  applyTheme();
   applyLang();
   renderTimer();
   renderSites();
@@ -184,6 +194,8 @@ $("start").onclick = async () => { state = await send("start"); render(); };
 $("pause").onclick = async () => { state = await send("pause"); render(); };
 $("skip").onclick = async () => { state = await send("skip"); render(); };
 $("reset").onclick = async () => { state = await send("reset"); render(); };
+$("theme").onclick = () => save({ theme: resolveTheme(state.theme, darkQuery.matches) === "dark" ? "light" : "dark" });
+darkQuery.addEventListener("change", applyTheme);
 $("lang").onclick = () => save({ lang: state.lang === "he" ? "en" : "he" });
 document.querySelectorAll("#mode button").forEach((b) => (b.onclick = () => save({ mode: b.dataset.mode })));
 

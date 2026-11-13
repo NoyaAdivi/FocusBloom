@@ -44,6 +44,14 @@ blockquote { font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0 aut
 .btn.primary { color: #fff; background: linear-gradient(135deg, var(--coral), var(--violet)); background-size: 200% 200%; animation: shimmer 5s ease infinite; box-shadow: 0 10px 26px rgba(111, 96, 240, .3); }
 .btn.ghost { background: rgba(255, 255, 255, .8); color: var(--violet-ink); border: 2px solid var(--lilac-2); }
 
+[data-theme="dark"] { --ink: #EDEAFF; --muted: #A99FC4; --violet-ink: #C9C2FF; }
+[data-theme="dark"] body { background: linear-gradient(135deg, #2A2140, #211D3A 55%, #182B2A); }
+[data-theme="dark"] .sky i { opacity: .16 !important; }
+[data-theme="dark"] .card { background: rgba(46, 40, 82, .7); box-shadow: 0 30px 80px rgba(0, 0, 0, .35); }
+[data-theme="dark"] .timer { background: #2E2852; }
+[data-theme="dark"] .btn.ghost { background: rgba(46, 40, 82, .8); color: #C9C2FF; }
+body, .card, .timer { transition: background .4s, color .4s; }
+
 @keyframes drift { to { transform: translate(40px, -30px) scale(1.1); } }
 @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.1); } }
 @keyframes rise { from { opacity: 0; transform: translateY(40px) scale(.96); } }

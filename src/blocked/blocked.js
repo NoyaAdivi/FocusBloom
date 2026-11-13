@@ -1,4 +1,4 @@
-import { timeLeft, formatTime, normalizeDomain, isBlockingActive } from "../logic.js";
+import { timeLeft, formatTime, normalizeDomain, isBlockingActive, resolveTheme } from "../logic.js";
 
 const TEXT = {
   en: {
@@ -37,6 +37,7 @@ let q = Math.floor(Math.random() * 5);
 function render() {
   const T = TEXT[state.lang] || TEXT.en;
   const always = state.mode === "always";
+  document.documentElement.dataset.theme = resolveTheme(state.theme, matchMedia("(prefers-color-scheme: dark)").matches);
   document.documentElement.lang = state.lang;
   document.documentElement.dir = state.lang === "he" ? "rtl" : "ltr";
   $("kicker").textContent = T.kicker;

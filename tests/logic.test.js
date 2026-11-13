@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   DEFAULTS, normalizeDomain, addSite, removeSite, isBlockingActive, isBlockedUrl,
-  buildRules, nextPhase, timeLeft, formatTime, badgeText, freshStats
+  buildRules, nextPhase, timeLeft, formatTime, badgeText, freshStats, resolveTheme
 } from "../src/logic.js";
 
 test("normalizeDomain cleans URLs and rejects junk", () => {
@@ -76,6 +76,13 @@ test("time helpers", () => {
   assert.equal(timeLeft({ ...DEFAULTS, pausedLeft: 777 }), 777);
   assert.equal(badgeText({ ...DEFAULTS, phase: "focus", endsAt: 90000 }, 0), "2");
   assert.equal(badgeText({ ...DEFAULTS, mode: "always" }), "ON");
+});
+
+test("theme follows the system only on auto", () => {
+  assert.equal(resolveTheme("auto", true), "dark");
+  assert.equal(resolveTheme("auto", false), "light");
+  assert.equal(resolveTheme("light", true), "light");
+  assert.equal(resolveTheme("dark", false), "dark");
 });
 
 test("stats reset on a new day", () => {

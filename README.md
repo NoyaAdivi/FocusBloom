@@ -63,6 +63,7 @@
         <li><b>One click</b> blocks the site you are on</li>
         <li><b>Daily stats:</b> sessions, minutes focused, distractions blocked</li>
         <li><b>Hebrew and English</b> with a full right-to-left layout</li>
+        <li><b>Dark mode</b> 🌙 that follows your system, or pick it yourself</li>
         <li><a href="tests/logic.test.js"><b>Unit tested</b></a> logic and a keyboard shortcut (<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>)</li>
       </ul>
     </td>

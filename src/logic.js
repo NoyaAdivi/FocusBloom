@@ -13,6 +13,7 @@ export const DEFAULTS = Object.freeze({
   pausedLeft: null, // ms left when paused
   cycle: 0, // finished focus sessions in the current set
   lang: "en",
+  theme: "auto", // "auto" follows the system, or "light" / "dark"
   stats: { sessions: 0, minutesFocused: 0, blockedHits: 0, day: "" }
 });
 
@@ -107,6 +108,12 @@ export function badgeText(state, now = Date.now()) {
   if (state.phase === "idle") return state.mode === "always" ? "ON" : "";
   if (state.pausedLeft != null) return "II";
   return String(Math.ceil(timeLeft(state, now) / 60000));
+}
+
+/** "auto" becomes "light" or "dark" based on the system setting. */
+export function resolveTheme(theme, systemDark) {
+  if (theme === "light" || theme === "dark") return theme;
+  return systemDark ? "dark" : "light";
 }
 
 /** Stats reset every day. */
