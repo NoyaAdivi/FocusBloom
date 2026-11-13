@@ -1,0 +1,12 @@
+{
+  "name": "focusbloom",
+  "version": "1.0.0",
+  "description": "Chrome extension: Pomodoro timer that blocks distracting sites only while you focus",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "author": "Noya Adivi",
+  "license": "MIT"
+}

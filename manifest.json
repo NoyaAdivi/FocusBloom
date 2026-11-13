@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "FocusBloom",
+  "short_name": "FocusBloom",
+  "version": "1.0.0",
+  "description": "Pomodoro timer that blocks distracting sites only while you focus. Hebrew and English.",
+  "icons": {
+    "16": "src/icons/icon16.png",
+    "32": "src/icons/icon32.png",
+    "48": "src/icons/icon48.png",
+    "128": "src/icons/icon128.png"
+  },
+  "action": {
+    "default_title": "FocusBloom",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "src/icons/icon16.png",
+      "32": "src/icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "alarms", "notifications", "declarativeNetRequest", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/blocked/*", "src/icons/*", "src/logic.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+F" },
+      "description": "Open FocusBloom"
+    }
+  }
+}

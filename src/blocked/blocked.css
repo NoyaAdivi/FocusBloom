@@ -1,0 +1,54 @@
+:root {
+  --peach: #FFE6DE; --peach-2: #FFB4A2; --coral: #E36E57; --lilac: #E8E4FF; --lilac-2: #B3A9FA;
+  --violet: #6F60F0; --violet-ink: #5548C8; --mint: #D9F3E7; --mint-2: #A9E3CD; --ink: #2C2668; --muted: #7A6B88;
+}
+* { box-sizing: border-box; margin: 0; }
+body {
+  min-height: 100vh; display: grid; place-items: center; padding: 24px; overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Rubik", Helvetica, Arial, sans-serif; color: var(--ink);
+  background: linear-gradient(135deg, var(--peach), var(--lilac) 55%, var(--mint));
+}
+.sky i { position: fixed; border-radius: 50%; animation: drift 13s ease-in-out infinite alternate; }
+.b1 { width: 46vmax; height: 46vmax; background: var(--peach-2); opacity: .3; left: -14vmax; bottom: -16vmax; }
+.b2 { width: 40vmax; height: 40vmax; background: #CFC8FF; opacity: .5; right: -12vmax; top: -14vmax; animation-duration: 16s !important; }
+.b3 { width: 30vmax; height: 30vmax; background: var(--mint-2); opacity: .45; right: 8vmax; bottom: -12vmax; animation-duration: 19s !important; }
+.star { position: fixed; font-size: 28px; animation: tw 3.2s ease-in-out infinite; }
+.s1 { left: 18%; top: 20%; color: var(--peach-2); } .s2 { right: 20%; top: 26%; color: var(--lilac-2); animation-delay: -1s; }
+.s3 { left: 26%; bottom: 18%; color: var(--mint-2); animation-delay: -2s; } .s4 { right: 16%; bottom: 24%; color: #F5B8C8; animation-delay: -.5s; }
+
+.card {
+  position: relative; width: min(520px, 100%); text-align: center; padding: 44px 36px 36px;
+  background: rgba(255, 255, 255, .6); backdrop-filter: blur(14px); border-radius: 32px;
+  box-shadow: 0 30px 80px rgba(111, 96, 240, .18); animation: rise .8s cubic-bezier(.2, 1.3, .4, 1) both;
+}
+.flower { width: 110px; height: 110px; margin: -100px auto 12px; animation: bob 3.4s ease-in-out infinite; }
+.flower img { width: 100%; height: 100%; border-radius: 30px; box-shadow: 0 14px 40px rgba(227, 110, 87, .25); animation: spin 24s linear infinite; }
+.kicker { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--coral); }
+h1 {
+  font-size: clamp(30px, 5vw, 44px); font-weight: 800; margin: 6px 0 8px;
+  background: linear-gradient(90deg, var(--coral), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+h1 .emo { -webkit-text-fill-color: initial; color: initial; display: inline-block; animation: bob 2.6s ease-in-out infinite; }
+.site { color: var(--muted); font-size: 15px; word-break: break-all; }
+.site b { color: var(--violet-ink); }
+.timer { display: inline-flex; flex-direction: column; margin: 22px 0 18px; padding: 14px 28px; border-radius: 22px; background: #fff; box-shadow: 0 8px 24px rgba(44, 38, 104, .08); }
+.timer span { font-size: 44px; font-weight: 800; font-variant-numeric: tabular-nums; animation: pulse 2s ease-in-out infinite; }
+.timer small { font-size: 12px; font-weight: 700; color: var(--muted); }
+blockquote { font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0 auto 24px; max-width: 400px; min-height: 52px; transition: opacity .5s; }
+.actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  font: inherit; font-weight: 800; font-size: 15px; padding: 12px 22px; border: 0; border-radius: 16px; cursor: pointer;
+  transition: transform .2s cubic-bezier(.3, 1.6, .5, 1), box-shadow .2s;
+}
+.btn:hover { transform: translateY(-3px) scale(1.04); }
+.btn.primary { color: #fff; background: linear-gradient(135deg, var(--coral), var(--violet)); background-size: 200% 200%; animation: shimmer 5s ease infinite; box-shadow: 0 10px 26px rgba(111, 96, 240, .3); }
+.btn.ghost { background: rgba(255, 255, 255, .8); color: var(--violet-ink); border: 2px solid var(--lilac-2); }
+
+@keyframes drift { to { transform: translate(40px, -30px) scale(1.1); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.1); } }
+@keyframes rise { from { opacity: 0; transform: translateY(40px) scale(.96); } }
+@keyframes bob { 50% { transform: translateY(-12px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 50% { transform: scale(1.04); } }
+@keyframes shimmer { 50% { background-position: 100% 100%; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
