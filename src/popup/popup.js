@@ -21,10 +21,10 @@ const I18N = {
     start: "התחלה", resume: "המשך", pause: "השהיה", skip: "דילוג", reset: "איפוס",
     blockWhen: "חסימה", modePomodoro: "בזמן מיקוד", modeAlways: "תמיד", modeOff: "כבויה",
     focusPhase: "מיקוד", breakPhase: "הפסקה", longBreakPhase: "הפסקה ארוכה", idlePhase: "מוכנה", pausedPhase: "מושהה",
-    stBlocking: "🛡️ {n} אתרים חסומים עכשיו", stOpen: "🌿 האתרים פתוחים. תהני מההפסקה",
+    stBlocking: "🛡️ {n} אתרים חסומים עכשיו", stOpen: "🌿 האתרים פתוחים. הפסקה נעימה",
     stIdle: "לוחצים התחלה והאתרים נחסמים ל-{m} דקות", stOff: "החסימה כבויה",
-    add: "הוספה", placeholder: "למשל youtube.com", addCurrent: "➕ לחסום את {d}", addCurrentNone: "פתחי אתר כדי לחסום אותו בלחיצה",
-    empty: "עוד אין אתרים. הוסיפי את אלה שגונבים לך את הריכוז.", removeTitle: "הסרה",
+    add: "הוספה", placeholder: "למשל youtube.com", addCurrent: "➕ לחסום את {d}", addCurrentNone: "פותחים אתר וחוסמים אותו בלחיצה",
+    empty: "עוד אין אתרים. מוסיפים כאן את אלה שגונבים לך את הריכוז.", removeTitle: "הסרה",
     stSessions: "סשנים היום", stMinutes: "דקות מיקוד", stHits: "הסחות נחסמו",
     durations: "משכי זמן (דקות)", focus: "מיקוד", shortBreak: "הפסקה קצרה", longBreak: "הפסקה ארוכה", cyclesLong: "סשנים עד הפסקה ארוכה",
     source: "קוד המקור בגיטהאב ↗", toDark: "מצב כהה", toLight: "מצב בהיר"
