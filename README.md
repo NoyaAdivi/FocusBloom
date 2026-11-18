@@ -21,7 +21,7 @@
 <h3 align="center">Focus for 25 minutes. Your distractions wait outside.</h3>
 
 <p align="center">
-  FocusBloom is a Chrome extension that joins a <b>Pomodoro timer</b> and a <b>site blocker</b>.<br>
+  FocusBloom is a Chrome extension that combines a <b>Pomodoro timer</b> and a <b>site blocker</b>.<br>
   YouTube, Instagram and friends are blocked <b>only while you focus</b> and open again the moment your break starts.
 </p>
 
@@ -43,7 +43,7 @@
       <p><b>🍅 A timer that does the work</b></p>
       <ul>
         <li><a href="src/popup/popup.js"><b>Blooming timer</b></a>: a petal opens with every minute you focus</li>
-        <li><b>Short and long breaks</b> on their own, every 4 sessions</li>
+        <li><b>Automatic short and long breaks</b>, with a long one every 4 sessions</li>
         <li><b>Keeps running</b> when the popup is closed, with a live badge on the icon</li>
         <li><b>Notifications</b> when focus or a break ends</li>
       </ul>
@@ -54,14 +54,14 @@
         <li><a href="src/background.js"><b>Blocked only during focus</b></a>, or always if you choose</li>
         <li><b>Subdomains too:</b> blocking youtube.com also blocks m.youtube.com</li>
         <li><b>Open tabs are caught</b> the second a session starts</li>
-        <li><a href="src/blocked/blocked.html"><b>A kind blocked page</b></a> with the time left that sends you back when the break starts</li>
+        <li><a href="src/blocked/blocked.html"><b>A friendly blocked page</b></a> that shows the time left and sends you back when the break starts</li>
       </ul>
     </td>
     <td valign="top" width="33%">
       <p><b>💛 Made with care</b></p>
       <ul>
         <li><b>One click</b> blocks the site you are on</li>
-        <li><b>Daily stats:</b> sessions, minutes focused, distractions blocked</li>
+        <li><b>Daily stats:</b> sessions, focus minutes and blocked distractions</li>
         <li><b>Hebrew and English</b> with a full right-to-left layout</li>
         <li><b>Dark mode</b> 🌙 that follows your system, or pick it yourself</li>
         <li><a href="tests/logic.test.js"><b>Unit tested</b></a> logic and a keyboard shortcut (<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>)</li>
